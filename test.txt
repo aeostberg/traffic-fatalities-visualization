@@ -1,0 +1,6 @@
+name,mode,gender,age,treerail,alcohol,arrest,oneparty,train
+Mikhail T,bicyclist,male,41,no,no,no,no,no
+Jared S,motorcyclist,male,23,no,no,no,no,no
+Bradley R.,bicyclist,male,62,no,no,yes,no,no
+Mauricio O,pedestrian,male,25,no,?,no,no,yes
+Marjorie D.,carpassenger,female,95,no,yes,yes,no,no
