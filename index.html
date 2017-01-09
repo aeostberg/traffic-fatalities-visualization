@@ -1,117 +1,117 @@
 <html>
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script
-    src="https://code.jquery.com/jquery-3.1.1.min.js"
-    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-    crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>SJ Traffic Deaths</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>SJ Traffic Deaths</title>
 </head>
 
 <style>
 body{
-    overflow: hidden;
-    margin: 10px;
+  overflow: hidden;
+  margin: 10px;
 }
 
 #title{
-    font-size: 10px;
-    background-color: #ccc;
+  font-size: 10px;
+  background-color: #ccc;
 }
 
 .pane{
-    border: 10px solid turquoise;
-    corner-radius: 10px;
-    height: 100%;
+  border: 10px solid turquoise;
+  corner-radius: 10px;
+  height: 100%;
 }
 .graph{
-    border: 1px solid gray;
-    white-space:nowrap;
-    margin-top: 10px;
+  border: 1px solid gray;
+  white-space:nowrap;
+  margin-top: 10px;
 }
 
 .personDetail{
-    border: 1px solid gray;
-    white-space:nowrap;
-    margin-top: 10px;
-    padding: 8px;
+  border: 1px solid gray;
+  white-space:nowrap;
+  margin-top: 10px;
+  padding: 8px;
 
 }
 
 
 .personDetail.bike{
-    background-image: url("icons/noun_61699.png");
-    background-position: right bottom;
-    background-size: contain;
-    background-repeat: no-repeat;
+  background-image: url("icons/noun_61699.png");
+  background-position: right bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .personDetail.motorcycle{
-    background-image: url("icons/noun_145963.png");
-    background-position: right bottom;
-    background-size: contain;
-    background-repeat: no-repeat;
+  background-image: url("icons/noun_145963.png");
+  background-position: right bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .graph div{
-    height:20px;
+  height:20px;
 
 }
 .red{
-    background-color: #ff8080;
+  background-color: #ff8080;
 }
 .orange{
-    background-color: #ffcc80;
+  background-color: #ffcc80;
 }
 .yellow{
-    background-color: #ffff80;
+  background-color: #ffff80;
 }
 .green{
-    background-color: #80ff80;
+  background-color: #80ff80;
 }
 .blue{
-    background-color: #80b3ff;
+  background-color: #80b3ff;
 }
 .purple{
-    background-color: #bf80ff;
+  background-color: #bf80ff;
 }
 .pink{
-    background-color: #ff80bf;
+  background-color: #ff80bf;
 }
 .turquoise{
-    background-color: #80dfff;
+  background-color: #80dfff;
 }
 .bluer{
-    background-color: #8080ff;
+  background-color: #8080ff;
 }
 
 .borderClass{
-    border-color: black;
-    border-width: 2px;
-    border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
 }
 
 .grayBackground{
-    background-color: #BBB;
+  background-color: #BBB;
 }
 
 .personPhoto{
-    width: 100%;
+  width: 100%;
 }
 
 .personInfo{
-    width: 100px;
+  width: 100px;
 }
 
 .pName{
-    font-size: 20px;
-    font-weight: bold;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .modeIcon{
-    width: 100px;
-    height: 100px;
+  width: 100px;
+  height: 100px;
 
 }
 
@@ -121,176 +121,182 @@ body{
 
 <script type="text/javascript">
 
-let lines = [];
-let headers = [];
+var lines = [];
+var headers = [];
 
-let modeNumbers = [];
-let ageNumbers = [];
-let genderNumbers = [];
-let timeNumbers = [];
+var mode_N = [];
+var age_N = [];
+var gender_N = [];
+var time_N = [];
 
-const modeLabels = ["driver", "carpassenger", "pedestrian", "motorcyclist", "bicyclist", "buspassenger"];
-const ageLabels = ["0015", "1620", "2130", "3140", "4150", "5160", "6170", "7180", "81+"];
-const genderLabels = ["female","male","unknown"];
-const timeLabels = ["morning", "afternoon", "evening", "night"];
-const roadTypeLabels = ["grand bouleconstd", "on-street primary bicycle facility", "main street", "city connector", "local connector", "freeway", "residential", "gas station","parking lot","mobile home park","inside building", "train track"]
-const treerailLabels = ["yes", "no", "unknown"];
-const alcoholLabels = ["yes", "no", "unknown"];
-const arrestLabels = ["yes", "no", "unknown"];
-const onepartyLabels = ["yes", "no", "unknown"];
-const trainLabels = ["yes", "no", "unknown"];
+var mode_L = ["driver", "carpassenger", "pedestrian", "motorcyclist", "bicyclist", "buspassenger"];
 
-let selectedRows = [];
+var age_L = ["0015", "1620", "2130", "3140", "4150", "5160", "6170", "7180", "81+"];
+
+var gender_L = ["female","male","unknown"];
+
+var time_L = ["morning", "afternoon", "evening", "night"];
+
+var roadType_L = ["grand boulevard", "on-street primary bicycle facility", "main street", "city connector", "local connector", "freeway", "residential", "gas station","parking lot","mobile home park","inside building", "train track"]
+
+var treerail_L = ["yes", "no", "unknown"];
+var alcohol_L = ["yes", "no", "unknown"];
+var arrest_L = ["yes", "no", "unknown"];
+var oneparty_L = ["yes", "no", "unknown"];
+var train_L = ["yes", "no", "unknown"];
+
+var selectedRows = [];
 
 color = ["red","turquoise","orange","green","yellow","blue","pink","bluer","purple"];
-// const color = ['#8dd3c7','#ffffb3','#bebada','#fb8072','#80b1d3','#fdb462','#b3de69','#fccde5','#d9d9d9','#bc80bd','#ccebc5','#ffed6f'];
 
 $(document).ready(function(){
-    $.ajax({
-        type: "GET",
-        url: "trafficdata.txt",
-        dataType: "text",
-        success: function(data) {processData(data);}
-    });
+  $.ajax({
+    type: "GET",
+    url: "trafficdata.txt",
+    dataType: "text",
+    success: function(data) {processData(data);}
+  });
 
-    selectedRows = [];
-    for (var i = 0; i < 60; i++) {
-        selectedRows.push(1);
-    }
+  selectedRows = [];
+  for (var i = 0; i < 60; i++) {
+    selectedRows.push(1);
+  }
 
 });
 
 function processData(allText) {
-    var allTextLines = allText.split(/\r\n|\n/);
-    headers = allTextLines[0].split(',');
+  var allTextLines = allText.split(/\r\n|\n/);
+  headers = allTextLines[0].split(',');
 
-    for (var i=1; i<allTextLines.length; i++) {
-        var data = allTextLines[i].split(',');
-        if (data.length == headers.length) {
+  for (var i=1; i<allTextLines.length; i++) {
+    var data = allTextLines[i].split(',');
+    if (data.length == headers.length) {
 
-            var tarr = [];
-            for (var j=0; j<headers.length; j++) {
-                tarr.push(headers[j]+":"+data[j]);
-            }
-            lines.push(tarr);
-        }
+      var tarr = [];
+      for (var j=0; j<headers.length; j++) {
+        tarr.push(headers[j]+":"+data[j]);
+      }
+      lines.push(tarr);
     }
+  }
 
-    for (var k=1; k<headers.length; k++){
-        console.log(headers[k] + " = getCol(lines, " + k + ")" );
-        eval(headers[k] + " = getCol(lines, " + k + ")" );
-    }
+  for (var k=1; k<headers.length; k++){
+    var dataArray = [];
+    eval(headers[k] + " = getCol(lines, " + k + ")" );
 
-    drawBarGraphs();
+    /*for (var l=0; l<eval(headers[k]+"_L").length; l++){
+    dataArray.push(compute(eval(headers[k]),eval(headers[k]+"_L["+l+"]")));
+  }
+  //alert(dataArray);
+
+  eval("public var " + headers[k] + "_N = " + dataArray);
+  */
 }
 
-function getCol(matrix, col){
-    var column = [];
-    for(var i=0; i<matrix.length; i++){
-        column.push(matrix[i][col]);
-    }
-    return column;
+drawBarGraphs();
 }
 
 function drawBarGraphs(){
 
-    $("#g1").empty();
-    $("#g2").empty();
-    $("#g3").empty();
-    $("#g4").empty();
-    $("#g5").empty();
+  $("#g1").empty();
+  $("#g2").empty();
+  $("#g3").empty();
+  $("#g4").empty();
+  $("#g5").empty();
 
-    modeNumbers = [
-        count(mode,modeLabels[0]),
-        count(mode,modeLabels[1]),
-        count(mode,modeLabels[2]),
-        count(mode,modeLabels[3]),
-        count(mode,modeLabels[4]),
-        count(mode,modeLabels[5])
-    ];
+  mode_N = [compute(mode, mode_L[0]),
+            compute(mode,mode_L[1]),
+            compute(mode,mode_L[2]),
+            compute(mode,mode_L[3]),
+            compute(mode,mode_L[4]),
+            compute(mode,mode_L[5])];
+  /*	age_N = [computeRange(age,age_L[0].split('-')[0],age_L[0].split('-')[1]),
+  computeRange(age,age_L[1].split('-')[0],age_L[1].split('-')[1]),
+  computeRange(age,age_L[2].split('-')[0],age_L[2].split('-')[1]),
+  computeRange(age,age_L[3].split('-')[0],age_L[3].split('-')[1]),
+  computeRange(age,age_L[4].split('-')[0],age_L[4].split('-')[1]),
+  computeRange(age,age_L[5].split('-')[0],age_L[5].split('-')[1]),
+  computeRange(age,age_L[6].split('-')[0],age_L[6].split('-')[1]),
+  computeRange(age,age_L[7].split('-')[0],age_L[7].split('-')[1]),
+  computeRange(age,age_L[8].split('+')[0],150)];*/
+  age_N = [ computeRange(age,parseInt(age_L[0].substring(0,2)),parseInt(age_L[0].substring(2,4))),
+            computeRange(age,parseInt(age_L[1].substring(0,2)),parseInt(age_L[1].substring(2,4))),
+            computeRange(age,parseInt(age_L[2].substring(0,2)),parseInt(age_L[2].substring(2,4))),
+            computeRange(age,parseInt(age_L[3].substring(0,2)),parseInt(age_L[3].substring(2,4))),
+            computeRange(age,parseInt(age_L[4].substring(0,2)),parseInt(age_L[4].substring(2,4))),
+            computeRange(age,parseInt(age_L[5].substring(0,2)),parseInt(age_L[5].substring(2,4))),
+            computeRange(age,parseInt(age_L[6].substring(0,2)),parseInt(age_L[6].substring(2,4))),
+            computeRange(age,parseInt(age_L[7].substring(0,2)),parseInt(age_L[7].substring(2,4))),
+            computeRange(age,parseInt(age_L[8].substring(0,2)),150)];
+  //alert(age_L[0].substring(0,2)+","+age_L[0].substring(2,4));
+  gender_N = [compute(gender,gender_L[0]),
+              compute(gender,gender_L[1]),
+              compute(gender,gender_L[2])];
+  time_N = [computeTime(time,7,12),
+            computeTime(time,13,18),
+            computeTime(time,19,24),
+            computeTime(time,0,6)];
+  roadType_N = [compute(roadType, roadType_L[0]),
+            compute(roadType,roadType_L[1]),
+            compute(roadType,roadType_L[2]),
+            compute(roadType,roadType_L[3]),
+            compute(roadType,roadType_L[4]),
+            compute(roadType,roadType_L[5]),
+            compute(roadType,roadType_L[6]),
+            compute(roadType,roadType_L[7]),
+            compute(roadType,roadType_L[8]),
+            compute(roadType,roadType_L[9]),
+            compute(roadType,roadType_L[10]),
+            compute(roadType,roadType_L[11]),
+            ];
+  for(i=0; i<mode_L.length;i++)
+  {
+    $("#g1").append("<div id='"+mode_L[i]+"' class='mode "+color[i]+"' onclick=handleClick(mode,"+ mode_L[i] + ") style='width:"+((100*mode_N[i])/Math.max.apply(Math,mode_N))+"%;'>"+mode_L[i]+" ("+mode_N[i]+")</div>");
+  }
 
-    ageNumbers = [
-        computeRange(age,parseInt(ageLabels[0].substring(0,2)),parseInt(ageLabels[0].substring(2,4))),
-        computeRange(age,parseInt(ageLabels[1].substring(0,2)),parseInt(ageLabels[1].substring(2,4))),
-        computeRange(age,parseInt(ageLabels[2].substring(0,2)),parseInt(ageLabels[2].substring(2,4))),
-        computeRange(age,parseInt(ageLabels[3].substring(0,2)),parseInt(ageLabels[3].substring(2,4))),
-        computeRange(age,parseInt(ageLabels[4].substring(0,2)),parseInt(ageLabels[4].substring(2,4))),
-        computeRange(age,parseInt(ageLabels[5].substring(0,2)),parseInt(ageLabels[5].substring(2,4))),
-        computeRange(age,parseInt(ageLabels[6].substring(0,2)),parseInt(ageLabels[6].substring(2,4))),
-        computeRange(age,parseInt(ageLabels[7].substring(0,2)),parseInt(ageLabels[7].substring(2,4))),
-        computeRange(age,parseInt(ageLabels[8].substring(0,2)),150)
-    ];
-    //alert(ageLabels[0].substring(0,2)+","+ageLabels[0].substring(2,4));
-    genderNumbers = [
-        count(gender,genderLabels[0]),
-        count(gender,genderLabels[1]),
-        count(gender,genderLabels[2])
-    ];
-    timeNumbers = [
-        computeTime(time,7,12),
-        computeTime(time,13,18),
-        computeTime(time,19,24),
-        computeTime(time,0,6)
-    ];
-    roadTypeNumbers = [
-        count(roadType, roadTypeLabels[0]),
-        count(roadType,roadTypeLabels[1]),
-        count(roadType,roadTypeLabels[2]),
-        count(roadType,roadTypeLabels[3]),
-        count(roadType,roadTypeLabels[4]),
-        count(roadType,roadTypeLabels[5]),
-        count(roadType,roadTypeLabels[6]),
-        count(roadType,roadTypeLabels[7]),
-        count(roadType,roadTypeLabels[8]),
-        count(roadType,roadTypeLabels[9]),
-        count(roadType,roadTypeLabels[10]),
-        count(roadType,roadTypeLabels[11]),
-    ];
-    for(i=0; i<modeLabels.length;i++)
-    {
-        $("#g1").append("<div id='"+modeLabels[i]+"' class='mode "+color[i]+"' onclick=handleClick(mode,"+ modeLabels[i] + ") style='width:"+((100*modeNumbers[i])/Math.max.apply(Math,modeNumbers))+"%;'>"+modeLabels[i]+" ("+modeNumbers[i]+")</div>");
-    }
-
-    for(i=0; i<ageLabels.length;i++)
-    {
-        // $("#g2").append("<div id='a"+ageLabels[i]+"' class='age "+color[i]+"' onclick=handleClick(age,"+ ageLabels[i] + ")				style='width:"+((100*ageNumbers[i])/Math.max.apply(Math,ageNumbers))+"%;'>"+ageLabels[i].substring(0,2) + "-" + ageLabels[i].substring(2,4) + " ("+ageNumbers[i]+")</div>");
-        let catName = ageLabels[i];
-        let div = $.parseHTML("<div id='a"+ageLabels[i]+"' class='age "+color[i]+"' 				style='width:"+((100*ageNumbers[i])/Math.max.apply(Math,ageNumbers))+"%;'>"+ageLabels[i].substring(0,2) + "-" + ageLabels[i].substring(2,4) + " ("+ageNumbers[i]+")</div>");
-        $(div).click(
-            ()=>{handleClick(age, catName)}
-        )
-        $("#g2").append(div);
-    }
-    for(i=0; i<genderLabels.length;i++)
-    {
-        $("#g3").append("<div id='"+genderLabels[i]+"' class='gender "+color[i]+"' onclick=handleClick(gender,"+ genderLabels[i] + ")		style='width:"+((100*genderNumbers[i])/Math.max.apply(Math,genderNumbers))+"%;'>"+genderLabels[i]+" ("+genderNumbers[i]+")</div>");
-    }
-    for(i=0; i<timeLabels.length; i++)
-    {
-        $("#g4").append("<div id='"+timeLabels[i]+"' class='time "+color[i]+"' onclick=handleClick(time,"+ timeLabels[i] + ")		style='width:"+((100*timeNumbers[i])/Math.max.apply(Math,timeNumbers))+"%;'>"+timeLabels[i]+" ("+timeNumbers[i]+")</div>");
-    }
-    for(i=0; i<roadTypeLabels.length; i++)
-    {
-        $("#g5").append("<div id='"+roadTypeLabels[i]+"' class='roadType "+color[i]+"' onclick=handleClick(roadType,"+ roadTypeLabels[i] + ")		style='width:"+((100*roadTypeNumbers[i])/Math.max.apply(Math,roadTypeNumbers))+"%;'>"+roadTypeLabels[i]+" ("+roadTypeNumbers[i]+")</div>");
-    }
+  for(i=0; i<age_L.length;i++)
+  {
+    // $("#g2").append("<div id='a"+age_L[i]+"' class='age "+color[i]+"' onclick=handleClick(age,"+ age_L[i] + ")				style='width:"+((100*age_N[i])/Math.max.apply(Math,age_N))+"%;'>"+age_L[i].substring(0,2) + "-" + age_L[i].substring(2,4) + " ("+age_N[i]+")</div>");
+    let catName = age_L[i];
+    let div = $.parseHTML("<div id='a"+age_L[i]+"' class='age "+color[i]+"' 				style='width:"+((100*age_N[i])/Math.max.apply(Math,age_N))+"%;'>"+age_L[i].substring(0,2) + "-" + age_L[i].substring(2,4) + " ("+age_N[i]+")</div>");
+    $(div).click(
+      ()=>{handleClick(age, catName)}
+    )
+    $("#g2").append(div);
+  }
+  for(i=0; i<gender_L.length;i++)
+  {
+    $("#g3").append("<div id='"+gender_L[i]+"' class='gender "+color[i]+"' onclick=handleClick(gender,"+ gender_L[i] + ")		style='width:"+((100*gender_N[i])/Math.max.apply(Math,gender_N))+"%;'>"+gender_L[i]+" ("+gender_N[i]+")</div>");
+  }
+  for(i=0; i<time_L.length; i++)
+  {
+    $("#g4").append("<div id='"+time_L[i]+"' class='time "+color[i]+"' onclick=handleClick(time,"+ time_L[i] + ")		style='width:"+((100*time_N[i])/Math.max.apply(Math,time_N))+"%;'>"+time_L[i]+" ("+time_N[i]+")</div>");
+  }
+  for(i=0; i<roadType_L.length; i++)
+  {
+    $("#g5").append("<div id='"+roadType_L[i]+"' class='roadType "+color[i]+"' onclick=handleClick(roadType,"+ roadType_L[i] + ")		style='width:"+((100*roadType_N[i])/Math.max.apply(Math,roadType_N))+"%;'>"+roadType_L[i]+" ("+roadType_N[i]+")</div>");
+  }
 }
 
 function handleClick(category,id){
+  console.log(category);
+  console.log(id);
+  //$("#g1").addClass('grayBackground');
 
-    if(category[0].startsWith("age")){
-        if(id.substring(0,2) == 81){
-            getRowsRange(age, id.substring(0,2), 150);
-        }
-        else{
-            getRowsRange(age, id.substring(0,2), id.substring(2,4));
-        }
+  if(category[0].startsWith("age")){
+      if(id.substring(0,2) == 81){
+        getRowsRange(age, id.substring(0,2), 150);
+      }
+      else{
+        getRowsRange(age, id.substring(0,2), id.substring(2,4));
+      }
 
-    }
-    else{
-        getRows(category, id.id);
-    }
+  }
+  else{
+    getRows(category, id.id);
+  }
 
-    drawBarGraphs();
+  drawBarGraphs();
 
 }
 
@@ -298,144 +304,150 @@ function clearSelection(category,id){
 
 }
 
-function count(col, filter){
-    var count = 0;
-    for(var i=0; i<col.length; ++i){
-        if(selectedRows[i] == 1 && col[i].split(':')[1] == filter){
-            count++;
-        }
+function compute(col, filter){
+  var count = 0;
+  for(var i=0; i<col.length; ++i){
+    if(selectedRows[i] == 1 && col[i].split(':')[1] == filter){
+      count++;
     }
-    return count;
+  }
+  return count;
 }
 
 function computeTime(col, filter1, filter2){
-    let count = 0;
-    for (var i=0; i<col.length; ++i){
-        if(selectedRows[i] == 1 && col[i].split(':')[1] >= filter1 && col[i].split(':')[1] <= filter2)
-        {
-            count++;
-        }
-        else{
-            //selectedRows[i] = 0;
-        }
+  let count = 0;
+  for (var i=0; i<col.length; ++i){
+    if(selectedRows[i] == 1 && col[i].split(':')[1] >= filter1 && col[i].split(':')[1] <= filter2)
+    {
+      count++;
     }
-    return count;
+    else{
+      //selectedRows[i] = 0;
+    }
+  }
+  return count;
 }
 
 function getRows(col, filter){
-    var count = 0;
-    for(var i=0; i<col.length; ++i){
-        if(selectedRows[i] == 1 && col[i].split(':')[1] == filter){
-            count++;
-        }
-        else{
-            selectedRows[i] = 0;
-        }
+  var count = 0;
+  for(var i=0; i<col.length; ++i){
+    if(selectedRows[i] == 1 && col[i].split(':')[1] == filter){
+      count++;
     }
-    return selectedRows;
+    else{
+      selectedRows[i] = 0;
+    }
+  }
+  return selectedRows;
 
 }
 
 function getRowsRange(col, filter1, filter2){
-    var count = 0;
-    console.log(col);
-    console.log(filter1);
-    console.log(typeof(filter1));
-    for(var i=0; i<col.length; ++i){
-        let ageData = parseInt(col[i].split(':')[1]);
-        if(selectedRows[i] == 1 && ageData >= filter1 && ageData <= filter2){
-            count++;
-        }
-        else{
-            selectedRows[i] = 0;
-        }
+  var count = 0;
+  console.log(col);
+  console.log(filter1);
+  console.log(typeof(filter1));
+  for(var i=0; i<col.length; ++i){
+    let ageData = parseInt(col[i].split(':')[1]);
+    if(selectedRows[i] == 1 && ageData >= filter1 && ageData <= filter2){
+      count++;
     }
-    return selectedRows;
+    else{
+      selectedRows[i] = 0;
+    }
+  }
+  return selectedRows;
 
 }
 
 
 function computeRange(col, filter1, filter2){
-    var count = 0;
-    for(var i=0; i<col.length; ++i){
-        let ageData = parseInt(col[i].split(':')[1]);
+  var count = 0;
+  for(var i=0; i<col.length; ++i){
+    let ageData = parseInt(col[i].split(':')[1]);
 
-        if(selectedRows[i] == 1 && ageData >= filter1 && ageData <= filter2){
-            count++;
+    if(selectedRows[i] == 1 && ageData >= filter1 && ageData <= filter2){
+      count++;
 
-            if(filter2 == 15){
-                console.log(selectedRows[i], col[i].split(':')[1] , filter1, filter2,count);
-            }
-        }
+      if(filter2 == 15){
+        console.log(selectedRows[i], col[i].split(':')[1] , filter1, filter2,count);
+      }
     }
-    return count;
+  }
+  return count;
 }
 
-
+function getCol(matrix, col){
+  var column = [];
+  for(var i=0; i<matrix.length; i++){
+    column.push(matrix[i][col]);
+  }
+  return column;
+}
 
 </script>
 
 <div class="row col-md-12" id="title">San Jose Traffic Deaths</div>
 
 <div class="row">
-    <div class="pane col-md-2">
+  <div class="pane col-md-2">
 
-        <span class="pane-title">Selector</span>
+    <span class="pane-title">Selector</span>
 
-        <div class="graph" id="g1"></div>
-        <div class="graph" id="g2"></div>
-        <div class="graph" id="g3"></div>
-        <div class="graph" id="g4"></div>
-        <div class="graph" id="g5"></div>
-    </div>
+    <div class="graph" id="g1"></div>
+    <div class="graph" id="g2"></div>
+    <div class="graph" id="g3"></div>
+    <div class="graph" id="g4"></div>
+    <div class="graph" id="g5"></div>
+  </div>
 
-    <div class="pane col-md-7">
-        <span class="pane-title">Map</span>
-    </div>
+  <div class="pane col-md-7">
+    <span class="pane-title">Map</span>
+  </div>
 
-    <div class="pane col-md-3">
-        <span class="pane-title">Detail Pane</span>
+  <div class="pane col-md-3">
+    <span class="pane-title">Detail Pane</span>
 
-        <div class="personDetail bike" id="p1">
-            <div class="row">
-                <div class="col-md-3">
-                    <img class="personPhoto" src="photos/mikhailtsitsiline.jpg">
-                </div>
-                <div class="personInfo col-md-8 ">
-                    <span class="pName">Mikhail Tsitsiline</span>
-                    <br>
-                    <span class="pDate">1/2/2016</span>
-                    <span class="pTime">19:08</span>
-                    <br>
-                    <span class="pMode">bicyclist</span>
-                    <span class="pLocation">South Seventh &amp; Reed Street</span>
-                    <span class="pGender">male</span>
-                    <span class="pAge">41</span>
-                </div>
-            </div>
+    <div class="personDetail bike" id="p1">
+      <div class="row">
+        <div class="col-md-3">
+          <img class="personPhoto" src="photos/mikhailtsitsiline.jpg">
         </div>
-
-        <div class="personDetail motorcycle" id="p2">
-            <div class="row">
-                <div class="col-md-3">
-                    <img class="personPhoto" src="photos/jaredsandoval.jpg">
-                </div>
-                <div class="personInfo col-md-8">
-                    <span class="pName">Jared Sandoval</span>
-                    <br>
-                    <span class="pDate">1/12/2016</span>
-                    <span class="pTime">8:13</span>
-                    <br>
-                    <span class="pMode">motorcyclist</span>
-                    <span class="pLocation">Hillsdale Avenue &amp; Kirk Road</span>
-                    <span class="pGender">male</span>
-                    <span class="pAge">23</span>
-                </div>
-            </div>
-        </div>
-
-
+      <div class="personInfo col-md-8 ">
+        <span class="pName">Mikhail Tsitsiline</span>
+        <br>
+        <span class="pDate">1/2/2016</span>
+        <span class="pTime">19:08</span>
+        <br>
+        <span class="pMode">bicyclist</span>
+        <span class="pLocation">South Seventh &amp; Reed Street</span>
+        <span class="pGender">male</span>
+        <span class="pAge">41</span>
+      </div>
     </div>
+  </div>
+
+    <div class="personDetail motorcycle" id="p2">
+      <div class="row">
+      <div class="col-md-3">
+        <img class="personPhoto" src="photos/jaredsandoval.jpg">
+      </div>
+      <div class="personInfo col-md-8">
+        <span class="pName">Jared Sandoval</span>
+        <br>
+        <span class="pDate">1/12/2016</span>
+        <span class="pTime">8:13</span>
+        <br>
+        <span class="pMode">motorcyclist</span>
+        <span class="pLocation">Hillsdale Avenue &amp; Kirk Road</span>
+        <span class="pGender">male</span>
+        <span class="pAge">23</span>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
 
 
 </div>
