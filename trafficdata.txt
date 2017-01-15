@@ -2,12 +2,11 @@ name,mode,gender,age,treerail,alcohol,arrest,oneparty,train,date,location,agency
 Mikhail Tsitsiline,bicyclist,male,41,no,no,no,no,no,1/2/2016,South Seventh & Reed Street,SJPD,19:08,local connector
 Jared Sandoval,motorcyclist,male,23,no,no,no,no,no,1/12/2016,Hillsdale Avenue & Kirk Road,SJPD,8:13,grand boulevard
 Bradley Scott Rest,bicyclist,male,62,no,no,yes,no,no,1/15/2016,Delmas Avenue & Santa Clara Street,SJPD,4:51,grand boulevard
-Fely Olivera,buspassenger,female,51,yes,?,no,yes,no,1/19/2016,101 & 85,CHP,6:40,freeway
-Maria de Jesus Ortiz Velasquez,buspassenger,female,76,yes,?,no,yes,no,1/19/2016,101 & 85,CHP,6:40,freeway
+Fely Olivera,buspassenger,female,51,yes,?,no,yes,no,1/19/2016,California 85 & U.S. 101,CHP,6:40,freeway
+Maria de Jesus Ortiz Velasquez,buspassenger,female,76,yes,?,no,yes,no,1/19/2016,California 85 & U.S. 101,CHP,6:40,freeway
 Unnamed,carpassenger,unknown,0,no,?,?,no,no,1/30/2016,King Road & San Antonio Street,SJPD,2:35,city connector
 Shinzui Sanada,driver,male,72,yes,no,no,yes,no,2/3/2016,85 & Cottle Road,CHP,1:35,freeway
 Roy Campos Jr.,motorcyclist,male,22,no,no,no,no,no,2/7/2016,Tully Road & South White Road,SJPD,14:00,main street
-Julianne Jasmine Quirazco,carpassenger,female,22,yes,yes,yes,no,no,2/11/2016,101 & Bailey Avenue,CHP,6:05,freeway
 Teodoro Arredondo-Dias,bicyclist,male,44,no,?,yes,no,no,2/12/2016,Winchester Boulevard & Driftwood Drive,SJPD,0:10,main street
 Heather Gonzalez,pedestrian,female,42,no,yes,yes,no,no,2/14/2016,De Rose Way & Leigh Avenue,SJPD,23:05,on-street primary bicycle facility
 Sandra Morse,carpassenger,female,57,no,yes,yes,no,no,2/20/2016,Camden Avenue and Hicks Road,SJPD,21:31,city connector

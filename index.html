@@ -15,6 +15,11 @@ body{
     margin: 10px;
 }
 
+#map {
+    height: 100%;
+    background-color: pink;
+}
+
 #title{
     font-size: 10px;
     background-color: #ccc;
@@ -116,6 +121,7 @@ body{
 </style>
 
 <script src="jquery-3.1.1.min.js"></script>
+<script src="papaparse.min.js"></script>
 
 <script type="text/javascript">
 
@@ -127,11 +133,19 @@ var ageNumbers = [];
 var genderNumbers = [];
 var timeNumbers = [];
 
-var modeLabels = ["driver", "carpassenger", "pedestrian", "motorcyclist", "bicyclist", "buspassenger"];
-var ageLabels = ["0015", "1620", "2130", "3140", "4150", "5160", "6170", "7180", "81+"];
-var genderLabels = ["female","male","unknown"];
-var timeLabels = ["morning", "afternoon", "evening", "night"];
-var roadTypeLabels = ["grand boulevard", "on-street primary bicycle facility", "main street", "city connector", "local connector", "freeway", "residential", "gas station","parking lot","mobile home park","inside building", "train track"]
+// var modeLabels = ["driver", "carpassenger", "pedestrian", "motorcyclist", "bicyclist", "buspassenger"];
+// var ageLabels = ["0015", "1620", "2130", "3140", "4150", "5160", "6170", "7180", "81+"];
+// var genderLabels = ["female","male","unknown"];
+// var timeLabels = ["morning", "afternoon", "evening", "night"];
+// var roadTypeLabels = ["grand boulevard", "on-street primary bicycle facility", "main street", "city connector", "local connector", "freeway", "residential", "gas station","parking lot","mobile home park","inside building", "train track"]
+
+var labels = {
+    mode: ["driver", "carpassenger", "pedestrian", "motorcyclist", "bicyclist", "buspassenger"],
+    age: ["0015", "1620", "2130", "3140", "4150", "5160", "6170", "7180", "81+"],
+    gender: ["female","male","unknown"],
+    time: ["morning", "afternoon", "evening", "night"],
+    roadType: ["grand boulevard", "on-street primary bicycle facility", "main street", "city connector", "local connector", "freeway", "residential", "gas station","parking lot","mobile home park","inside building", "train track"],
+}
 
 var treerailLabels = ["yes", "no", "unknown"];
 var alcoholLabels = ["yes", "no", "unknown"];
@@ -143,43 +157,28 @@ var selectedRows = [];
 
 color = ["red","turquoise","orange","green","yellow","blue","pink","bluer","purple"];
 
+
 $(document).ready(function(){
     $.ajax({
         type: "GET",
-        url: "trafficdata.txt",
+        url: "trafficdata.csv",
         dataType: "text",
         success: function(data) {processData(data);}
     });
-
-    selectedRows = [];
-    for (var i = 0; i < 60; i++) {
-        selectedRows.push(1);
-    }
-
 });
 
 function processData(allText) {
-    var allTextLines = allText.split(/\r\n|\n/);
-    headers = allTextLines[0].split(',');
+    data = Papa.parse('./trafficdata.csv', {
+    	download: true,
+    })
+    trafficFatalities = Papa.parse(allText, { header: true }).data;
 
-    for (var i=1; i<allTextLines.length; i++) {
-        var data = allTextLines[i].split(',');
-        if (data.length == headers.length) {
-
-            var tarr = [];
-            for (var j=0; j<headers.length; j++) {
-                tarr.push(headers[j]+":"+data[j]);
-            }
-            lines.push(tarr);
-        }
-    }
-
-    for (var k=1; k<headers.length; k++){
-        var dataArray = [];
-        eval(headers[k] + " = getCol(lines, " + k + ")" );
+    for (var i = 0; i < trafficFatalities.length; i++) {
+        trafficFatalities[i].visible = true;
     }
 
     drawBarGraphs();
+    // initMap();
 }
 
 function drawBarGraphs(){
@@ -190,82 +189,91 @@ function drawBarGraphs(){
     $("#g4").empty();
     $("#g5").empty();
 
-    modeNumbers = [
-        compute(mode,modeLabels[0]),
-        compute(mode,modeLabels[1]),
-        compute(mode,modeLabels[2]),
-        compute(mode,modeLabels[3]),
-        compute(mode,modeLabels[4]),
-        compute(mode,modeLabels[5])
-    ];
-
-    ageNumbers = [
-        computeRange(age,parseInt(ageLabels[0].substring(0,2)),parseInt(ageLabels[0].substring(2,4))),
-        computeRange(age,parseInt(ageLabels[1].substring(0,2)),parseInt(ageLabels[1].substring(2,4))),
-        computeRange(age,parseInt(ageLabels[2].substring(0,2)),parseInt(ageLabels[2].substring(2,4))),
-        computeRange(age,parseInt(ageLabels[3].substring(0,2)),parseInt(ageLabels[3].substring(2,4))),
-        computeRange(age,parseInt(ageLabels[4].substring(0,2)),parseInt(ageLabels[4].substring(2,4))),
-        computeRange(age,parseInt(ageLabels[5].substring(0,2)),parseInt(ageLabels[5].substring(2,4))),
-        computeRange(age,parseInt(ageLabels[6].substring(0,2)),parseInt(ageLabels[6].substring(2,4))),
-        computeRange(age,parseInt(ageLabels[7].substring(0,2)),parseInt(ageLabels[7].substring(2,4))),
-        computeRange(age,parseInt(ageLabels[8].substring(0,2)),150)
-    ];
-
-    genderNumbers = [
-        compute(gender,genderLabels[0]),
-        compute(gender,genderLabels[1]),
-        compute(gender,genderLabels[2])
-    ];
-    timeNumbers = [
-        computeRange(time,7,12),
-        computeRange(time,13,18),
-        computeRange(time,19,24),
-        computeRange(time,0,6)
-    ];
-    roadTypeNumbers = [
-        compute(roadType, roadTypeLabels[0]),
-        compute(roadType,roadTypeLabels[1]),
-        compute(roadType,roadTypeLabels[2]),
-        compute(roadType,roadTypeLabels[3]),
-        compute(roadType,roadTypeLabels[4]),
-        compute(roadType,roadTypeLabels[5]),
-        compute(roadType,roadTypeLabels[6]),
-        compute(roadType,roadTypeLabels[7]),
-        compute(roadType,roadTypeLabels[8]),
-        compute(roadType,roadTypeLabels[9]),
-        compute(roadType,roadTypeLabels[10]),
-        compute(roadType,roadTypeLabels[11]),
-    ];
-    for(i=0; i<modeLabels.length;i++)
+    // ageNumbers = [
+    //     computeRange(age,parseInt(ageLabels[0].substring(0,2)),parseInt(ageLabels[0].substring(2,4))),
+    //     computeRange(age,parseInt(ageLabels[1].substring(0,2)),parseInt(ageLabels[1].substring(2,4))),
+    //     computeRange(age,parseInt(ageLabels[2].substring(0,2)),parseInt(ageLabels[2].substring(2,4))),
+    //     computeRange(age,parseInt(ageLabels[3].substring(0,2)),parseInt(ageLabels[3].substring(2,4))),
+    //     computeRange(age,parseInt(ageLabels[4].substring(0,2)),parseInt(ageLabels[4].substring(2,4))),
+    //     computeRange(age,parseInt(ageLabels[5].substring(0,2)),parseInt(ageLabels[5].substring(2,4))),
+    //     computeRange(age,parseInt(ageLabels[6].substring(0,2)),parseInt(ageLabels[6].substring(2,4))),
+    //     computeRange(age,parseInt(ageLabels[7].substring(0,2)),parseInt(ageLabels[7].substring(2,4))),
+    //     computeRange(age,parseInt(ageLabels[8].substring(0,2)),150)
+    // ];
+    //
+    // genderNumbers = [
+    //     compute(gender,genderLabels[0]),
+    //     compute(gender,genderLabels[1]),
+    //     compute(gender,genderLabels[2])
+    // ];
+    // timeNumbers = [
+    //     computeRange(time,7,12),
+    //     computeRange(time,13,18),
+    //     computeRange(time,19,24),
+    //     computeRange(time,0,6)
+    // ];
+    // roadTypeNumbers = [
+    //     compute(roadType, roadTypeLabels[0]),
+    //     compute(roadType,roadTypeLabels[1]),
+    //     compute(roadType,roadTypeLabels[2]),
+    //     compute(roadType,roadTypeLabels[3]),
+    //     compute(roadType,roadTypeLabels[4]),
+    //     compute(roadType,roadTypeLabels[5]),
+    //     compute(roadType,roadTypeLabels[6]),
+    //     compute(roadType,roadTypeLabels[7]),
+    //     compute(roadType,roadTypeLabels[8]),
+    //     compute(roadType,roadTypeLabels[9]),
+    //     compute(roadType,roadTypeLabels[10]),
+    //     compute(roadType,roadTypeLabels[11]),
+    // ];
+    let modeNumbers = labels['mode'].map( (label)=> {
+        return trafficFatalities.filter((person)=>person.mode===label).length;
+    })
+    for(i=0; i<labels['mode'].length;i++)
     {
-        $("#g1").append("<div id='"+modeLabels[i]+"' class='mode "+color[i]+"' onclick=handleClick(mode,"+ modeLabels[i] + ") style='width:"+((100*modeNumbers[i])/Math.max.apply(Math,modeNumbers))+"%;'>"+modeLabels[i]+" ("+modeNumbers[i]+")</div>");
+        let width = 100 * modeNumbers[i] / Math.max(...modeNumbers);
+        $("#g1").append(`
+            <div
+                id='${labels['mode'][i]}'
+                data-key='mode'
+                class='mode ${color[i]}'
+                onclick='handleClick("mode", "${labels['mode'][i]}")'
+                style='width:${width}%'>
+                ${labels['mode'][i]} (${modeNumbers[i]})
+             </div>
+         `);
     }
 
-    for(i=0; i<ageLabels.length;i++)
-    {
-        // $("#g2").append("<div id='a"+ageLabels[i]+"' class='age "+color[i]+"' onclick=handleClick(age,"+ ageLabels[i] + ")				style='width:"+((100*ageNumbers[i])/Math.max.apply(Math,ageNumbers))+"%;'>"+ageLabels[i].substring(0,2) + "-" + ageLabels[i].substring(2,4) + " ("+ageNumbers[i]+")</div>");
-        let catName = ageLabels[i];
-        let div = $.parseHTML("<div id='a"+ageLabels[i]+"' class='age "+color[i]+"' 				style='width:"+((100*ageNumbers[i])/Math.max.apply(Math,ageNumbers))+"%;'>"+ageLabels[i].substring(0,2) + "-" + ageLabels[i].substring(2,4) + " ("+ageNumbers[i]+")</div>");
-        $(div).click(
-            ()=>{handleClick(age, catName)}
-        )
-        $("#g2").append(div);
-    }
-    for(i=0; i<genderLabels.length;i++)
-    {
-        $("#g3").append("<div id='"+genderLabels[i]+"' class='gender "+color[i]+"' onclick=handleClick(gender,"+ genderLabels[i] + ")		style='width:"+((100*genderNumbers[i])/Math.max.apply(Math,genderNumbers))+"%;'>"+genderLabels[i]+" ("+genderNumbers[i]+")</div>");
-    }
-    for(i=0; i<timeLabels.length; i++)
-    {
-        $("#g4").append("<div id='"+timeLabels[i]+"' class='time "+color[i]+"' onclick=handleClick(time,"+ timeLabels[i] + ")		style='width:"+((100*timeNumbers[i])/Math.max.apply(Math,timeNumbers))+"%;'>"+timeLabels[i]+" ("+timeNumbers[i]+")</div>");
-    }
-    for(i=0; i<roadTypeLabels.length; i++)
-    {
-        $("#g5").append("<div id='"+roadTypeLabels[i]+"' class='roadType "+color[i]+"' onclick=handleClick(roadType,"+ roadTypeLabels[i] + ")		style='width:"+((100*roadTypeNumbers[i])/Math.max.apply(Math,roadTypeNumbers))+"%;'>"+roadTypeLabels[i]+" ("+roadTypeNumbers[i]+")</div>");
-    }
+//     for(i=0; i<ageLabels.length;i++)
+//     {
+//         // $("#g2").append("<div id='a"+ageLabels[i]+"' class='age "+color[i]+"' onclick=handleClick(age,"+ ageLabels[i] + ")				style='width:"+((100*ageNumbers[i])/Math.max.apply(Math,ageNumbers))+"%;'>"+ageLabels[i].substring(0,2) + "-" + ageLabels[i].substring(2,4) + " ("+ageNumbers[i]+")</div>");
+//         let catName = ageLabels[i];
+//         let div = $.parseHTML("<div id='a"+ageLabels[i]+"' class='age "+color[i]+"' 				style='width:"+((100*ageNumbers[i])/Math.max.apply(Math,ageNumbers))+"%;'>"+ageLabels[i].substring(0,2) + "-" + ageLabels[i].substring(2,4) + " ("+ageNumbers[i]+")</div>");
+//         $(div).click(
+//             ()=>{handleClick(age, catName)}
+//         )
+//         $("#g2").append(div);
+//     }
+//     for(i=0; i<genderLabels.length;i++)
+//     {
+//         $("#g3").append("<div id='"+genderLabels[i]+"' class='gender "+color[i]+"' onclick=handleClick(gender,"+ genderLabels[i] + ")		style='width:"+((100*genderNumbers[i])/Math.max.apply(Math,genderNumbers))+"%;'>"+genderLabels[i]+" ("+genderNumbers[i]+")</div>");
+//     }
+//     for(i=0; i<timeLabels.length; i++)
+//     {
+//         $("#g4").append("<div id='"+timeLabels[i]+"' class='time "+color[i]+"' onclick=handleClick(time,"+ timeLabels[i] + ")		style='width:"+((100*timeNumbers[i])/Math.max.apply(Math,timeNumbers))+"%;'>"+timeLabels[i]+" ("+timeNumbers[i]+")</div>");
+//     }
+//     for(i=0; i<roadTypeLabels.length; i++)
+//     {
+//         $("#g5").append("<div id='"+roadTypeLabels[i]+"' class='roadType "+color[i]+"' onclick=handleClick(roadType,"+ roadTypeLabels[i] + ")		style='width:"+((100*roadTypeNumbers[i])/Math.max.apply(Math,roadTypeNumbers))+"%;'>"+roadTypeLabels[i]+" ("+roadTypeNumbers[i]+")</div>");
+//     }
 }
+//
+// handleClick = () => {
+//     console.log(this);
+// }
 
 function handleClick(category,id){
+    console.log(category, id);
     if(category[0].startsWith("age")){
         if(id.substring(0,2) == 81){
             getRowsRange(age, id.substring(0,2), 150);
@@ -321,21 +329,15 @@ function getRows(col, filter){
 }
 
 function getRowsRange(col, filter1, filter2){
-    var count = 0;
     for(var i=0; i<col.length; ++i){
         let ageData = parseInt(col[i].split(':')[1]);
         if(selectedRows[i] == 1 && ageData >= filter1 && ageData <= filter2){
-            count++;
         }
         else{
             selectedRows[i] = 0;
         }
     }
-    return selectedRows;
-
 }
-
-
 
 
 function getCol(matrix, col){
@@ -345,6 +347,68 @@ function getCol(matrix, col){
     }
     return column;
 }
+
+var map;
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: new google.maps.LatLng(37.3325181,-121.9107473),
+    });
+
+    var service = new google.maps.places.PlacesService(map);
+    var infowindow = new google.maps.InfoWindow();
+
+    for (var i = 0; i < locations.length; i++) {
+        let nam = mode[i].split(":")[1];
+        let loc = window.locations[i].split(":")[1];
+        let request = {
+            location: new google.maps.LatLng(37.3325181,-121.9107473),
+            keyword: loc,
+            radius: 50000,
+        };
+
+        service.search(request, (results, status) => {
+            if (results && results[0]) {
+                let place = results[0];
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: place.geometry.location
+                });
+
+                google.maps.event.addListener(marker, 'click', function() {
+                    infowindow.setContent(nam);
+                    infowindow.open(map, this);
+                });
+            }
+        })
+        //
+        // service.getDetails({
+        //     "placeQuery": loc,
+        // }, function(place, status) {
+        //     var marker = new google.maps.Marker({ place: place, map: map });
+        // });
+
+    }
+
+    // Create a <script> tag and set the USGS URL as the source.
+    // var script = document.createElement('script');
+    // // This example uses a local copy of the GeoJSON stored at
+    // // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
+    // script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
+    // document.getElementsByTagName('head')[0].appendChild(script);
+}
+// Loop through the results array and place a marker for each
+// set of coordinates.
+// window.eqfeed_callback = function(results) {
+//     for (var i = 0; i < results.features.length; i++) {
+//         var coords = results.features[i].geometry.coordinates;
+//         var latLng = new google.maps.LatLng(coords[1],coords[0]);
+//         var marker = new google.maps.Marker({
+//             position: latLng,
+//             map: map
+//         });
+//     }
+// }
 
 </script>
 
@@ -362,8 +426,7 @@ function getCol(matrix, col){
         <div class="graph" id="g5"></div>
     </div>
 
-    <div class="pane col-md-7">
-        <span class="pane-title">Map</span>
+    <div class="pane col-md-7" id="map">
     </div>
 
     <div class="pane col-md-3">
@@ -408,4 +471,13 @@ function getCol(matrix, col){
         </div>
     </div>
 </div>
+
+
+<script>
+
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh0yMI7qk8fepSv2wveDR7sv2YuD-iA2Y&libraries=places">
+</script>
+
 </html>

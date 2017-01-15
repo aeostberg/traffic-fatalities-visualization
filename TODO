@@ -1,0 +1,11 @@
+I just finished refactoring the code that counts the fatalities matching particular
+labels, it should be p easy to make this generic and apply to the other simple matching
+critieria: gender, roadType
+
+After that I can look into a new function for the number range items (ages, timeOfDay)
+
+I removed the previous code that created a seperate array for each key and instead have an array of fatalities.
+
+I should somehow store the state of the filters, or use jquery by adding / removing classes.
+Once I know the filter state, I can set visible to false for any fatalities that are filterered
+out and then rerender the bar graphs.
