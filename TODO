@@ -1,11 +1,21 @@
-I just finished refactoring the code that counts the fatalities matching particular
-labels, it should be p easy to make this generic and apply to the other simple matching
-critieria: gender, roadType
-
-After that I can look into a new function for the number range items (ages, timeOfDay)
-
-I removed the previous code that created a seperate array for each key and instead have an array of fatalities.
-
 I should somehow store the state of the filters, or use jquery by adding / removing classes.
-Once I know the filter state, I can set visible to false for any fatalities that are filterered
+Once I know the filter state, I can set visible to false for any fatalities that are filtered
 out and then rerender the bar graphs.
+
+--
+
+
+Does it make sense to create the number range filters that render the bar graphs independent of the functionality that will be needed to apply multiple filters from the same set? Or in other words, if I'm tracking the filter state independently, do I still need to calculate widths when rendering individual bar graphs?
+
+NO, BUT may as well figure out the matching logic first and then just move it to the new function.
+
+Well to extend the current model where items are simply marked as not visible, it would be pretty easy to loop through all fatalities and mark the non-matching values for the given key as not visible. In the new system though, each criteria is considered independently at the time of render. So basically each of the labels within a key (say 'mode') can be set to on or off (and defaults to on). In effect these aren't just "label", but are in fact the actual "filters"
+
+var labels = {
+    mode: ["driver", "carpassenger", "pedestrian", "motorcyclist", "bicyclist", "buspassenger"],
+};
+
+
+make function generic and apply to gender and roadType
+do something similar for ages and timeOfDay
+have the map filter based on the visible bounds

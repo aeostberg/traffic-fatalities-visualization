@@ -1,60 +1,60 @@
 name,mode,gender,age,treerail,alcohol,arrest,oneparty,train,date,location,agency,time,roadType,latitude,longitude
-Mikhail Tsitsiline,bicyclist,male,41,no,no,no,no,no,1/2/16,South Seventh & Reed Street,SJPD,19:08,local connector,,
-Jared Sandoval,motorcyclist,male,23,no,no,no,no,no,1/12/16,Hillsdale Avenue & Kirk Road,SJPD,8:13,grand boulevard,,
-Bradley Scott Rest,bicyclist,male,62,no,no,yes,no,no,1/15/16,Delmas Avenue & Santa Clara Street,SJPD,4:51,grand boulevard,,
-Fely Olivera,buspassenger,female,51,yes,?,no,yes,no,1/19/16,California 85 & U.S. 101,CHP,6:40,freeway,,
-Maria de Jesus Ortiz Velasquez,buspassenger,female,76,yes,?,no,yes,no,1/19/16,California 85 & U.S. 101,CHP,6:40,freeway,,
-Unnamed,carpassenger,unknown,0,no,?,?,no,no,1/30/16,King Road & San Antonio Street,SJPD,2:35,city connector,,
-Shinzui Sanada,driver,male,72,yes,no,no,yes,no,2/3/16,California 85 & Cottle Road,CHP,1:35,freeway,,
-Roy Campos Jr.,motorcyclist,male,22,no,no,no,no,no,2/7/16,Tully Road & South White Road,SJPD,14:00,main street,,
-Teodoro Arredondo-Dias,bicyclist,male,44,no,?,yes,no,no,2/12/16,Winchester Boulevard & Driftwood Drive,SJPD,0:10,main street,,
-Heather Gonzalez,pedestrian,female,42,no,yes,yes,no,no,2/14/16,De Rose Way & Leigh Avenue,SJPD,23:05,on-street primary bicycle facility,,
-Sandra Morse,carpassenger,female,57,no,yes,yes,no,no,2/20/16,Camden Avenue and Hicks Road,SJPD,21:31,city connector,,
-Christopher Durbin,driver,male,59,no,yes,yes,no,no,2/20/16,Camden Avenue and Hicks Road,SJPD,21:31,city connector,,
-Ronald Stephen Diaz,pedestrian,male,20,no,yes,?,no,no,2/21/16,Interstate 280 & California 87,CHP,3:45,freeway,,
-Unnamed,pedestrian,female,?,no,no,no,no,no,2/25/16,Bellingham Drive,SJPD,8:18,residential,,
-Tyler Anderson,pedestrian,male,29,no,no,no,no,no,2/25/16,California 87 & California 85,CHP,19:10,freeway,,
-Roberta Mendenhall,pedestrian,female,78,no,no,no,no,no,2/26/16,"Valero 1185 S De Anza Blvd, San Jose, CA 95129",SJPD,19:15,gas station,,
-Mark Gonzales,driver,male,57,no,yes,yes,no,no,3/4/16,Camden Avenue & Leigh Avenue,SJPD,2:47,grand boulevard,,
-Fekadu Awele,pedestrian,male,44,no,?,?,no,no,3/5/16,10th Street & Commercial Street,SJPD,10:07,city connector,,
-Lawrence Ronald Thompson,pedestrian,male,72,no,no,no,no,no,4/16/16,Snell Avenue & Giuffrida Avenue,SJPD,0:05,city connector,,
-Unnamed,pedestrian,male,15,no,no,no,no,yes,4/18/16,North Capitol Avenue & Gimelli Way,,14:47,grand boulevard,,
-Ramon Navarro,driver,male,60,no,no,no,no,no,4/17/16,"US-101 & E Santa Clara St, San Jose, CA 95116",CHP,16:00,freeway,,
-Unnamed,pedestrian,male,61,no,?,?,no,no,4/20/16,Story Road & McLaughlin Avenue,SJPD,23:45,city connector,,
-Gary Lazzotti,driver,male,47,yes,no,no,yes,no,5/15/16,Coyote Road & Silver Creek Valley Road,SJPD,20:57,city connector,,
-Lin Van Le,driver,male,56,?,?,?,?,no,5/18/16,Berryessa Road & Morrill Avenue,SJPD,7:30,city connector,,
-Alexandra Lozano,pedestrian,female,22,no,?,yes,no,no,6/1/16,360 S Jackson Avenue,SJPD,0:07,city connector,,
-Michael Katherman,motorcyclist,male,34,no,no,no,no,no,6/14/16,10th Street & Horning Street,SJPD,16:22,city connector,,
-Aniket Gadre,pedestrian,male,6,no,no,no,no,no,6/30/16,Oakridge Mall parking lot,SJPD,21:34,parking lot,,
-Rodrigo Nuno,motorcyclist,male,50,no,no,no,yes,no,7/1/16,US 101 & Bernal Road,CHP,23:00,freeway,,
-Fred Figueroa,bicyclist,male,49,no,no,no,no,no,7/9/16,Capitol Expressway & Senter Road,SJPD,3:27,grand boulevard,,
-Mauricio Gerardo Orosco,bicyclist,male,54,no,?,no,no,yes,8/5/16,"672 W Virginia St, San Jose, CA 95125",San Mateo County Sheriff (Caltrain),8:00,train track,,
-Julius Cesar Canales,pedestrian,male,35,no,?,no,no,yes,8/10/16,Monterey Road & Skyway Drive,SJPD / SMCS,10:20,train track,,
-Dulce Capetillo,carpassenger,female,18,no,yes,yes,no,no,8/17/16,US 101 & Tully Road,CHP,1:50,freeway,,
-Marjorie Devine,carpassenger,female,95,no,yes,yes,no,no,8/28/16,Camden Avenue & Bose Lane,SJPD,21:16,city connector,,
-Donna Perucca,carpassenger,female,73,no,yes,yes,no,no,8/28/16,Camden Avenue & Bose Lane,SJPD,21:16,city connector,,
-Anthony Angel,driver,male,22,yes,?,no,yes,no,9/7/16,US 101 & Hellyer Road,CHP,13:15,freeway,,
-Edgar Lopez Ayala,driver,male,21,yes,?,no,yes,no,9/18/16,US 101 & Blossom Hill Road,CHP,4:20,freeway,,
-Nathan Martinez,pedestrian,male,37,no,?,?,no,no,9/20/16,King Road & Tully Road,SJPD,0:22,main street,,
-Michael Anthony Varela,pedestrian,male,28,no,?,yes,no,no,10/2/16,East Capitol Expressway & Tully Road,SJPD,0:55,grand boulevard,,
-Robin Najar,driver,male,20,yes,?,no,yes,no,10/2/16,Silver Creek Valley Road & Farnsworth Drive,SJPD,2:55,on-street primary bicycle facility,,
-Tomas Baltierra,bicyclist,male,55,no,yes,yes,no,no,10/6/16,Auzerais Avenue & Drake Street,SJPD,21:41,local connector,,
-Matthew Houston,driver,male,55,yes,?,no,yes,no,10/16/16,Branham Lane East & Houndshaven Way,SJPD,23:31,on-street primary bicycle facility,,
-Marleen Sanabria Martinez,carpassenger,female,21,no,?,?,no,no,10/19/16,McLaughlin Avenue & Summerside Drive,SJPD,19:30,city connector,,
-Guy Perry,motorcyclist,male,48,no,?,no,yes,no,10/25/16,Laswell Avenue & West San Carlos Avenue,SJPD,17:30,residential,,
-Antonia Ramirez de Mendez,pedestrian,female,81,no,no,no,no,no,10/29/16,Chateau La Salle mobile home park,SJPD,17:38,mobile home park,,
-Christopher Chiu,driver,male,17,yes,no,no,yes,no,11/1/16,Murillo Avenue & Rose Terrasse Circle,SJPD,16:31,city connector,,
-Unnamed,pedestrian,male,42,no,no,no,no,no,10/1/16,US 101 & Tully Road,CHP,1:30,freeway,,
-Doug Andreen,pedestrian,male,61,no,yes,yes,no,no,11/10/16,4th Street & Santa Clara Street,SJPD,16:34,grand boulevard,,
-Leonardo Jeronimo,pedestrian,male,49,no,no,no,no,no,11/11/16,Curtner Avenue & Little Orchard Street,SJPD,11:45,inside building,,
-Gaudencio Antonio Rosas,pedestrian,male,43,no,?,?,no,no,11/17/16,US 101 & Tully Road,CHP,1:16,freeway,,
-Jennifer Talavera,pedestrian,female,37,no,no,no,no,no,11/29/16,Monterey Road & Capitol Expressway,SJPD,3:00,grand boulevard,,
-Timothy Bevins,motorcyclist,male,64,yes,no,no,yes,no,11/23/16,"U.S. 101 & Interstate 880, San Jose, California 95112",CHP,14:15,freeway,,
-Sergio Ramirez,driver,male,17,no,no,no,no,no,12/9/16,Monterey Road & Daylight Way,SJPD,17:20,grand boulevard,,
-Patrick Osmar,pedestrian,male,59,no,?,yes,no,no,12/10/16,East Hedding Street & North 15th Street,SJPD,3:00,on-street primary bicycle facility,,
-Samantha Torres,driver,female,24,yes,?,no,yes,no,12/10/16,Fruitdale Avenue & Saint Elizabeth Drive,SJPD,20:30,local connector,,
-Loubna Faiez,driver,female,22,yes,?,no,yes,no,12/11/16,South Capitol Avenue & Excalibur Drive,SJPD,4:00,grand boulevard,,
-Christhian Perez,carpassenger,male,21,yes,?,no,yes,no,12/11/16,South Capitol Avenue & Excalibur Drive,SJPD,4:00,grand boulevard,,
-Jessica Zamora,driver,female,25,no,yes,no,no,no,12/25/16,Capitol Expressway & Snell Avenue,SJPD,0:28,grand boulevard,,
-Andrew Nguyen,carpassenger,male,14,no,yes,no,no,no,12/25/16,Capitol Expressway & Snell Avenue,SJPD,0:28,grand boulevard,,
-Unnamed,pedestrian,male,42,no,no,no,no,no,10/1/16,US 101 & Tully Road,CHP,1:35,freeway,,
+Mikhail Tsitsiline,bicyclist,male,41,no,no,no,no,no,1/2/16,South Seventh & Reed Street,SJPD,19:08,local connector,37.330121,-121.87744
+Jared Sandoval,motorcyclist,male,23,no,no,no,no,no,1/12/16,Hillsdale Avenue & Kirk Road,SJPD,8:13,grand boulevard,37.266827,-121.908266
+Bradley Scott Rest,bicyclist,male,62,no,no,yes,no,no,1/15/16,Delmas Avenue & Santa Clara Street,SJPD,4:51,grand boulevard,37.332085,-121.899095
+Fely Olivera,buspassenger,female,51,yes,?,no,yes,no,1/19/16,California 85 & U.S. 101,CHP,6:40,freeway,37.241558,-121.768594
+Maria de Jesus Ortiz Velasquez,buspassenger,female,76,yes,?,no,yes,no,1/19/16,California 85 & U.S. 101,CHP,6:40,freeway,37.241558,-121.768594
+Unnamed,carpassenger,unknown,0,no,?,?,no,no,1/30/16,King Road & San Antonio Street,SJPD,2:35,city connector,37.3498245,-121.8527171
+Shinzui Sanada,driver,male,72,yes,no,no,yes,no,2/3/16,California 85 & Cottle Road,CHP,1:35,freeway,37.242867,-121.80397
+Roy Campos Jr.,motorcyclist,male,22,no,no,no,no,no,2/7/16,Tully Road & South White Road,SJPD,14:00,main street,37.3354722,-121.8006908
+Teodoro Arredondo-Dias,bicyclist,male,44,no,?,yes,no,no,2/12/16,Winchester Boulevard & Driftwood Drive,SJPD,0:10,main street,37.2984373,-121.9498516
+Heather Gonzalez,pedestrian,female,42,no,yes,yes,no,no,2/14/16,De Rose Way & Leigh Avenue,SJPD,23:05,on-street bicycle facility,37.3038447,-121.9225448
+Sandra Morse,carpassenger,female,57,no,yes,yes,no,no,2/20/16,Camden Avenue and Hicks Road,SJPD,21:31,city connector,37.2265062,-121.9040114
+Christopher Durbin,driver,male,59,no,yes,yes,no,no,2/20/16,Camden Avenue and Hicks Road,SJPD,21:31,city connector,37.2265062,-121.9040114
+Ronald Stephen Diaz,pedestrian,male,20,no,yes,?,no,no,2/21/16,Interstate 280 & California 87,CHP,3:45,freeway,37.32386,-121.892302
+Unnamed,pedestrian,female,?,no,no,no,no,no,2/25/16,Bellingham Drive,SJPD,8:18,residential,37.3077846,-121.829127
+Tyler Anderson,pedestrian,male,29,no,no,no,no,no,2/25/16,California 87 & California 85,CHP,19:10,freeway,37.255437,-121.858887
+Roberta Mendenhall,pedestrian,female,78,no,no,no,no,no,2/26/16,"Valero 1185 S De Anza Blvd, San Jose, CA 95129",SJPD,19:15,gas station,37.3035466,-122.0326834
+Mark Gonzales,driver,male,57,no,yes,yes,no,no,3/4/16,Camden Avenue & Leigh Avenue,SJPD,2:47,grand boulevard,37.2618344,-121.9223353
+Fekadu Awele,pedestrian,male,44,no,?,?,no,no,3/5/16,10th Street & Commercial Street,SJPD,10:07,city connector,37.3621649,-121.8970554
+Lawrence Ronald Thompson,pedestrian,male,72,no,no,no,no,no,4/16/16,Snell Avenue & Giuffrida Avenue,SJPD,0:05,city connector,37.2531626,-121.8309326
+Unnamed,pedestrian,male,15,no,no,no,no,yes,4/18/16,North Capitol Avenue & Gimelli Way,,14:47,grand boulevard,37.3750761,-121.8480849
+Ramon Navarro,driver,male,60,no,no,no,no,no,4/17/16,"US-101 & E Santa Clara St, San Jose, CA 95116",CHP,16:00,freeway,37.349902,-121.861691
+Unnamed,pedestrian,male,61,no,?,?,no,no,4/20/16,Story Road & McLaughlin Avenue,SJPD,23:45,city connector,37.3326256,-121.8536132
+Gary Lazzotti,driver,male,47,yes,no,no,yes,no,5/15/16,Coyote Road & Silver Creek Valley Road,SJPD,20:57,city connector,37.2570987,-121.793105
+Lin Van Le,driver,male,56,?,?,?,?,no,5/18/16,Berryessa Road & Morrill Avenue,SJPD,7:30,city connector,37.3897548,-121.8562545
+Alexandra Lozano,pedestrian,female,22,no,?,yes,no,no,6/1/16,360 S Jackson Avenue,SJPD,0:07,city connector,37.3525266,-121.837824
+Michael Katherman,motorcyclist,male,34,no,no,no,no,no,6/14/16,10th Street & Horning Street,SJPD,16:22,city connector,37.3600477,-121.8954726
+Aniket Gadre,pedestrian,male,6,no,no,no,no,no,6/30/16,Oakridge Mall parking lot,SJPD,21:34,parking lot,37.2520423,-121.8631791
+Rodrigo Nuno,motorcyclist,male,50,no,no,no,yes,no,7/1/16,US 101 & Bernal Road,CHP,23:00,freeway,37.2440741,-121.7738453
+Fred Figueroa,bicyclist,male,49,no,no,no,no,no,7/9/16,Capitol Expressway & Senter Road,SJPD,3:27,grand boulevard,37.2934571,-121.8333653
+Mauricio Gerardo Orosco,bicyclist,male,54,no,?,no,no,yes,8/5/16,"672 W Virginia St, San Jose, CA 95125",San Mateo County Sheriff (Caltrain),8:00,train track,37.320255,-121.899599
+Julius Cesar Canales,pedestrian,male,35,no,?,no,no,yes,8/10/16,Monterey Road & Skyway Drive,SJPD / SMCS,10:20,train track,37.2724196,-121.829101
+Dulce Capetillo,carpassenger,female,18,no,yes,yes,no,no,8/17/16,US 101 & Tully Road,CHP,1:50,freeway,37.318411,-121.8316
+Marjorie Devine,carpassenger,female,95,no,yes,yes,no,no,8/28/16,Camden Avenue & Bose Lane,SJPD,21:16,city connector,37.2214156,-121.8673158
+Donna Perucca,carpassenger,female,73,no,yes,yes,no,no,8/28/16,Camden Avenue & Bose Lane,SJPD,21:16,city connector,37.2214156,-121.8673158
+Anthony Angel,driver,male,22,yes,?,no,yes,no,9/7/16,US 101 & Hellyer Road,CHP,13:15,freeway,37.281887,-121.808665
+Edgar Lopez Ayala,driver,male,21,yes,?,no,yes,no,9/18/16,US 101 & Blossom Hill Road,CHP,4:20,freeway,37.257241,-121.796276
+Nathan Martinez,pedestrian,male,37,no,?,?,no,no,9/20/16,King Road & Tully Road,SJPD,0:22,main street,37.3224421,-121.8259889
+Michael Anthony Varela,pedestrian,male,28,no,?,yes,no,no,10/2/16,East Capitol Expressway & Tully Road,SJPD,0:55,grand boulevard,37.3312585,-121.8129281
+Robin Najar,driver,male,20,yes,?,no,yes,no,10/2/16,Silver Creek Valley Road & Farnsworth Drive,SJPD,2:55,on-street bicycle facility,37.2840503,-121.7737942
+Tomas Baltierra,bicyclist,male,55,no,yes,yes,no,no,10/6/16,Auzerais Avenue & Drake Street,SJPD,21:41,local connector,37.3223589,-121.9008913
+Matthew Houston,driver,male,55,yes,?,no,yes,no,10/16/16,Branham Lane East & Houndshaven Way,SJPD,23:31,on-street bicycle facility,37.2697268,-121.8184955
+Marleen Sanabria Martinez,carpassenger,female,21,no,?,?,no,no,10/19/16,McLaughlin Avenue & Summerside Drive,SJPD,19:30,city connector,37.3183119,-121.8395862
+Guy Perry,motorcyclist,male,48,no,?,no,yes,no,10/25/16,Laswell Avenue & West San Carlos Avenue,SJPD,17:30,residential,37.3233352,-121.9310679
+Antonia Ramirez de Mendez,pedestrian,female,81,no,no,no,no,no,10/29/16,Chateau La Salle mobile home park,SJPD,17:38,mobile home park,37.2937077,-121.8554053
+Christopher Chiu,driver,male,17,yes,no,no,yes,no,11/1/16,Murillo Avenue & Rose Terrasse Circle,SJPD,16:31,city connector,37.3209462,-121.762241
+Unnamed,pedestrian,male,42,no,no,no,no,no,10/1/16,US 101 & Tully Road,CHP,1:30,freeway,37.318411,-121.8316
+Doug Andreen,pedestrian,male,61,no,yes,yes,no,no,11/10/16,4th Street & Santa Clara Street,SJPD,16:34,grand boulevard,37.3376819,-121.8874261
+Leonardo Jeronimo,pedestrian,male,49,no,no,no,no,no,11/11/16,Curtner Avenue & Little Orchard Street,SJPD,11:45,inside building,37.300015,-121.867048
+Gaudencio Antonio Rosas,pedestrian,male,43,no,?,?,no,no,11/17/16,US 101 & Tully Road,CHP,1:16,freeway,37.318411,-121.8316
+Jennifer Talavera,pedestrian,female,37,no,no,no,no,no,11/29/16,Monterey Road & Capitol Expressway,SJPD,3:00,grand boulevard,37.279958,-121.83727
+Timothy Bevins,motorcyclist,male,64,yes,no,no,yes,no,11/23/16,"U.S. 101 & Interstate 880, San Jose, California 95112",CHP,14:15,freeway,37.36418,-121.901951
+Sergio Ramirez,driver,male,17,no,no,no,no,no,12/9/16,Monterey Road & Daylight Way,SJPD,17:20,grand boulevard,37.2892768,-121.8468333
+Patrick Osmar,pedestrian,male,59,no,?,yes,no,no,12/10/16,East Hedding Street & North 15th Street,SJPD,3:00,on-street bicycle facility,37.3601787,-121.889101
+Samantha Torres,driver,female,24,yes,?,no,yes,no,12/10/16,Fruitdale Avenue & Saint Elizabeth Drive,SJPD,20:30,local connector,37.3106578,-121.9157013
+Loubna Faiez,driver,female,22,yes,?,no,yes,no,12/11/16,South Capitol Avenue & Excalibur Drive,SJPD,4:00,grand boulevard,37.3547582,-121.8308597
+Christhian Perez,carpassenger,male,21,yes,?,no,yes,no,12/11/16,South Capitol Avenue & Excalibur Drive,SJPD,4:00,grand boulevard,37.3547582,-121.8308597
+Jessica Zamora,driver,female,25,no,yes,no,no,no,12/25/16,Capitol Expressway & Snell Avenue,SJPD,0:28,grand boulevard,37.2769741,-121.8420548
+Andrew Nguyen,carpassenger,male,14,no,yes,no,no,no,12/25/16,Capitol Expressway & Snell Avenue,SJPD,0:28,grand boulevard,37.2769741,-121.8420548
+Unnamed,pedestrian,male,42,no,no,no,no,no,10/1/16,US 101 & Tully Road,CHP,1:35,freeway,37.318411,-121.8316

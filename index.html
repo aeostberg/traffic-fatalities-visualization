@@ -1,6 +1,6 @@
 <html>
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
     <script
     src="https://code.jquery.com/jquery-3.1.1.min.js"
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
@@ -10,9 +10,12 @@
 </head>
 
 <style>
+* {box-sizing: border-box;}
 body{
     overflow: hidden;
-    margin: 10px;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+
 }
 
 #map {
@@ -26,7 +29,7 @@ body{
 }
 
 .pane{
-    border: 10px solid turquoise;
+    /*border: 10px solid turquoise;*/
     corner-radius: 10px;
     height: 100%;
 }
@@ -59,35 +62,19 @@ body{
 }
 
 .graph div{
-    height:20px;
-
-}
-.red{
-    background-color: #ff8080;
-}
-.orange{
-    background-color: #ffcc80;
-}
-.yellow{
-    background-color: #ffff80;
-}
-.green{
-    background-color: #80ff80;
-}
-.blue{
-    background-color: #80b3ff;
-}
-.purple{
-    background-color: #bf80ff;
-}
-.pink{
-    background-color: #ff80bf;
-}
-.turquoise{
-    background-color: #80dfff;
-}
-.bluer{
-    background-color: #8080ff;
+    height:21px;
+    line-height: 21px;
+    font-size: 13px;
+    padding-left: 4px;
+    /*text-shadow:*/
+        -.5px -.5px 0 #fff,
+        .5px -.5px 0 #fff,
+        -.5px .5px 0 #fff,
+        .5px .5px 0 #fff,
+        -.5px 0 0 #fff,
+        .5px 0 0 #fff,
+        0 .5px 0 #fff,
+        0 -.5px 0 #fff;
 }
 
 .borderClass{
@@ -133,18 +120,33 @@ var ageNumbers = [];
 var genderNumbers = [];
 var timeNumbers = [];
 
-// var modeLabels = ["driver", "carpassenger", "pedestrian", "motorcyclist", "bicyclist", "buspassenger"];
-// var ageLabels = ["0015", "1620", "2130", "3140", "4150", "5160", "6170", "7180", "81+"];
-// var genderLabels = ["female","male","unknown"];
-// var timeLabels = ["morning", "afternoon", "evening", "night"];
-// var roadTypeLabels = ["grand boulevard", "on-street primary bicycle facility", "main street", "city connector", "local connector", "freeway", "residential", "gas station","parking lot","mobile home park","inside building", "train track"]
-
 var labels = {
     mode: ["driver", "carpassenger", "pedestrian", "motorcyclist", "bicyclist", "buspassenger"],
     age: ["0015", "1620", "2130", "3140", "4150", "5160", "6170", "7180", "81+"],
     gender: ["female","male","unknown"],
     time: ["morning", "afternoon", "evening", "night"],
-    roadType: ["grand boulevard", "on-street primary bicycle facility", "main street", "city connector", "local connector", "freeway", "residential", "gas station","parking lot","mobile home park","inside building", "train track"],
+    roadType: ["grand boulevard", "on-street bicycle facility", "main street", "city connector", "local connector", "freeway", "residential", "gas station","parking lot","mobile home park","inside building", "train track"],
+}
+
+// each range is defined by it's starting point and encompasses all numbers up to the next label
+var rangeLabels = {
+    age: [
+        { label: "0 - 15",  start: 0 },
+        { label: "16 - 20", start: 16 },
+        { label: "21 - 30", start: 21 },
+        { label: "31 - 40", start: 31 },
+        { label: "41 - 50", start: 41 },
+        { label: "51 - 60", start: 51 },
+        { label: "61 - 70", start: 61 },
+        { label: "71 - 80", start: 71 },
+        { label: "81+",     start: 81 },
+    ],
+    time: [
+        { label: "night",     start: 0  },
+        { label: "morning",   start: 7  },
+        { label: "afternoon", start: 13 },
+        { label: "evening",   start: 19 },
+    ],
 }
 
 var treerailLabels = ["yes", "no", "unknown"];
@@ -155,8 +157,9 @@ var trainLabels = ["yes", "no", "unknown"];
 
 var selectedRows = [];
 
-color = ["red","turquoise","orange","green","yellow","blue","pink","bluer","purple"];
-
+// colorScale = ["#810024", "#BF0020", "#E6140A", "#FF4D1A", "#FF8D2E", "#FFB340", "#FFDA6E", "#F4ED93", "#EBF9AC", "#C6EAB2", "#7CCEBB", "#3AB6C5", "#0D90C2", "#1E5CAA", "#24309"];
+// colorScale = ["#8dd3c7", "<div id="beb"></div>ada", "#fb8072", "#80b1d3", "#fdb462", "#b3de69", "#fccde5", "#d9d9d9", "#bc80bd", "#ccebc5", "#ffed6f"]
+colorScale = ["#DADCDF","#BABEC5"];
 
 $(document).ready(function(){
     $.ajax({
@@ -168,9 +171,6 @@ $(document).ready(function(){
 });
 
 function processData(allText) {
-    data = Papa.parse('./trafficdata.csv', {
-    	download: true,
-    })
     trafficFatalities = Papa.parse(allText, { header: true }).data;
 
     for (var i = 0; i < trafficFatalities.length; i++) {
@@ -189,6 +189,11 @@ function drawBarGraphs(){
     $("#g4").empty();
     $("#g5").empty();
 
+    drawBar('mode');
+    drawBar('gender');
+    drawBar('roadType');
+
+    drawBarWithRange('age')
     // ageNumbers = [
     //     computeRange(age,parseInt(ageLabels[0].substring(0,2)),parseInt(ageLabels[0].substring(2,4))),
     //     computeRange(age,parseInt(ageLabels[1].substring(0,2)),parseInt(ageLabels[1].substring(2,4))),
@@ -201,48 +206,12 @@ function drawBarGraphs(){
     //     computeRange(age,parseInt(ageLabels[8].substring(0,2)),150)
     // ];
     //
-    // genderNumbers = [
-    //     compute(gender,genderLabels[0]),
-    //     compute(gender,genderLabels[1]),
-    //     compute(gender,genderLabels[2])
-    // ];
     // timeNumbers = [
     //     computeRange(time,7,12),
     //     computeRange(time,13,18),
     //     computeRange(time,19,24),
     //     computeRange(time,0,6)
     // ];
-    // roadTypeNumbers = [
-    //     compute(roadType, roadTypeLabels[0]),
-    //     compute(roadType,roadTypeLabels[1]),
-    //     compute(roadType,roadTypeLabels[2]),
-    //     compute(roadType,roadTypeLabels[3]),
-    //     compute(roadType,roadTypeLabels[4]),
-    //     compute(roadType,roadTypeLabels[5]),
-    //     compute(roadType,roadTypeLabels[6]),
-    //     compute(roadType,roadTypeLabels[7]),
-    //     compute(roadType,roadTypeLabels[8]),
-    //     compute(roadType,roadTypeLabels[9]),
-    //     compute(roadType,roadTypeLabels[10]),
-    //     compute(roadType,roadTypeLabels[11]),
-    // ];
-    let modeNumbers = labels['mode'].map( (label)=> {
-        return trafficFatalities.filter((person)=>person.mode===label).length;
-    })
-    for(i=0; i<labels['mode'].length;i++)
-    {
-        let width = 100 * modeNumbers[i] / Math.max(...modeNumbers);
-        $("#g1").append(`
-            <div
-                id='${labels['mode'][i]}'
-                data-key='mode'
-                class='mode ${color[i]}'
-                onclick='handleClick("mode", "${labels['mode'][i]}")'
-                style='width:${width}%'>
-                ${labels['mode'][i]} (${modeNumbers[i]})
-             </div>
-         `);
-    }
 
 //     for(i=0; i<ageLabels.length;i++)
 //     {
@@ -254,39 +223,57 @@ function drawBarGraphs(){
 //         )
 //         $("#g2").append(div);
 //     }
-//     for(i=0; i<genderLabels.length;i++)
-//     {
-//         $("#g3").append("<div id='"+genderLabels[i]+"' class='gender "+color[i]+"' onclick=handleClick(gender,"+ genderLabels[i] + ")		style='width:"+((100*genderNumbers[i])/Math.max.apply(Math,genderNumbers))+"%;'>"+genderLabels[i]+" ("+genderNumbers[i]+")</div>");
-//     }
 //     for(i=0; i<timeLabels.length; i++)
 //     {
 //         $("#g4").append("<div id='"+timeLabels[i]+"' class='time "+color[i]+"' onclick=handleClick(time,"+ timeLabels[i] + ")		style='width:"+((100*timeNumbers[i])/Math.max.apply(Math,timeNumbers))+"%;'>"+timeLabels[i]+" ("+timeNumbers[i]+")</div>");
 //     }
-//     for(i=0; i<roadTypeLabels.length; i++)
-//     {
-//         $("#g5").append("<div id='"+roadTypeLabels[i]+"' class='roadType "+color[i]+"' onclick=handleClick(roadType,"+ roadTypeLabels[i] + ")		style='width:"+((100*roadTypeNumbers[i])/Math.max.apply(Math,roadTypeNumbers))+"%;'>"+roadTypeLabels[i]+" ("+roadTypeNumbers[i]+")</div>");
-//     }
 }
-//
-// handleClick = () => {
-//     console.log(this);
-// }
+
+drawBarWithRange = (key) => {
+    let keyCount = [];
+    for (var i = 0; i < rangeLabels[key].length-1; i++) {
+        keyCount.push(trafficFatalities.filter( (person) => {
+            return (person[key] >= rangeLabels[key][i].start && person[key] < rangeLabels[key][i+1].start);
+        }).length);
+    }
+    let lastLabel = rangeLabels[key][rangeLabels[key].length-1];
+    keyCount.push(trafficFatalities.filter((person) => {person[key] >= lastLabel.start}).length);
+
+}
+
+drawBar = (key) => {
+    let keyCount = labels[key].map( (label)=> {
+        return trafficFatalities.filter( (person) => person[key]===label).length;
+    })
+    for(i=0; i<labels[key].length;i++)
+    {
+        let width = 100 * keyCount[i] / Math.max(...keyCount);
+        $(`#graph-${key}`).append(`
+            <div
+                id='${labels[key][i]}'
+                onclick='handleClick("${key}", "${labels[key][i]}")'
+                style='width:${width}%; background-color:${colorScale[i%colorScale.length]}'>
+                ${labels[key][i]} (${keyCount[i]})
+             </div>
+         `);
+    }
+}
 
 function handleClick(category,id){
     console.log(category, id);
-    if(category[0].startsWith("age")){
-        if(id.substring(0,2) == 81){
-            getRowsRange(age, id.substring(0,2), 150);
-        }
-        else{
-            getRowsRange(age, id.substring(0,2), id.substring(2,4));
-        }
-    }
-    else{
-        getRows(category, id.id);
-    }
-
-    drawBarGraphs();
+    // if(category[0].startsWith("age")){
+    //     if(id.substring(0,2) == 81){
+    //         getRowsRange(age, id.substring(0,2), 150);
+    //     }
+    //     else{
+    //         getRowsRange(age, id.substring(0,2), id.substring(2,4));
+    //     }
+    // }
+    // else{
+    //     getRows(category, id.id);
+    // }
+    //
+    // drawBarGraphs();
 }
 
 function clearSelection(category,id){
@@ -414,22 +401,22 @@ function initMap() {
 
 <div class="row col-md-12" id="title">San Jose Traffic Deaths</div>
 
-<div class="row">
-    <div class="pane col-md-2">
+<div style="display: flex; width: 100%;">
+    <div class="pane" style="width: 200px; padding-right: 10px; padding-left: 10px;">
 
         <span class="pane-title">Selector</span>
 
-        <div class="graph" id="g1"></div>
-        <div class="graph" id="g2"></div>
-        <div class="graph" id="g3"></div>
-        <div class="graph" id="g4"></div>
-        <div class="graph" id="g5"></div>
+        <div class="graph" id="graph-mode"></div>
+        <div class="graph" id="graph-age"></div>
+        <div class="graph" id="graph-gender"></div>
+        <div class="graph" id="graph-time"></div>
+        <div class="graph" id="graph-roadType"></div>
     </div>
 
-    <div class="pane col-md-7" id="map">
+    <div class="pane" id="map" style="flex-grow: 1">
     </div>
 
-    <div class="pane col-md-3">
+    <div class="pane" style="width: 300px; padding-left: 10px;">
         <span class="pane-title">Detail Pane</span>
 
         <div class="personDetail bike" id="p1">
